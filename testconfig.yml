@@ -1,0 +1,43 @@
+---
+application:
+  name: "Automation Exercise"
+  url: "https://automationexercise.com/"
+
+users:
+  - type: "admin"
+    name: "Ahmet"
+    username: "atezgider@gmail.com"
+    password: "atezgider"
+  - type: "tester"
+    name: "Ahmet"
+    username: "atezgider@gmail.com"
+    password: "atezgider"
+  - type: "user"
+    name: "Ahmet"
+    username: "atezgider@gmail.com"
+    password: "atezgider"
+
+tests:
+  browser: CHROME # FIREFOX, EDGE , SAFARI
+  features: "c:/features"
+  tags: ""
+
+chrome:
+  version: 116
+  options:
+    - "--start-maximized"
+   # - "--incognito" # gizli sekmede acar.
+    - ""
+
+edge:
+  version: 117
+  options:
+    - ""
+    - ""
+
+variables:
+  var1: "variable1"
+  var2: "variable2"
+  var3: "variable3"
+  var4: "variable4"
+
