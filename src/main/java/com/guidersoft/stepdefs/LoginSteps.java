@@ -1,18 +1,20 @@
 package com.guidersoft.stepdefs;
 
 
-import com.guidersoft.config.TestConfig;
-import com.guidersoft.config.TestConfigReader;
+
 import com.guidersoft.pageobjects.HomePage;
 import com.guidersoft.pageobjects.LoginSignup;
 import com.guidersoft.pageobjects.Menu;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import com.guidersoft.pageobjects.MenuObjects;
+import org.junit.Assert;
 
 import java.util.Map;
+import java.util.Properties;
 
 public class LoginSteps {
 
@@ -102,6 +104,7 @@ public class LoginSteps {
 
     @When("verify that home page is visible successfully")
     public void verifyThatHomePageIsVisibleSuccessfully() {
+
         Menu.LOGO.shouldBeVisible();
     }
 
@@ -111,6 +114,13 @@ public class LoginSteps {
         Menu.TEXTSIGNUP.shouldBeVisible();
 
     }
+    @And("user login with following credentials")
+    public void userLoginWithFollowingCredentials(DataTable table) {
+        Map<String, String> data = table.asMap();
+        String email = data.get("email");
+        String password = data.get("password");
+        loginSignup.login(email, password);
+    }
 
 
     @And("user fills the New User Sigup form as follows")
@@ -119,5 +129,23 @@ public class LoginSteps {
         String name = data.get("name");
         String email = data.get("email");
         loginSignup.signup(name, email);
+    }
+
+    @Then("login should be successful")
+    public void loginShouldBeSuccessful() {
+
+        Menu.LOGOUT.shouldBeVisible();
+    }
+    Properties properties = new Properties();
+
+    @When("user save {string} as {string}")
+    public void userSaveAs(String variable, String value) {
+        properties.setProperty(variable, value);
+    }
+
+    @Then("{string} degeri {string} olmali")
+    public void degeriOlmali(String variable, String value) {
+        String val = properties.getProperty(variable);
+        Assert.assertEquals(val, value);
     }
 }
