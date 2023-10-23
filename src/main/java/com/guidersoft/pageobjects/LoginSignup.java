@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -30,6 +31,26 @@ public class LoginSignup extends BaseTest {
     public WebElement inputSignupName;
     @FindBy(css = ".signup-form button")
     public WebElement buttonSignup;
+    @FindBy (id="id_gender2")
+    public WebElement registerMrs;
+    @FindBy (id="id_gender1")
+    public WebElement registerMr;
+
+    @FindBy (id="name")
+    public WebElement registerName;
+    @FindBy (id="password")
+    public WebElement registerPassword;
+    @FindBy(id = "days")
+    public WebElement registerDayOfBirth;
+
+    @FindBy(id = "months")
+    public WebElement registerMonthOfBirth;
+
+    @FindBy(id = "years")
+    public WebElement registerYearOfBirth;
+
+
+
 
     public void login(String email, String password){
 

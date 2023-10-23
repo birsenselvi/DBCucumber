@@ -20,7 +20,7 @@ users:
 tests:
   browser: CHROME # FIREFOX, EDGE , SAFARI
   features: "src/main/resources/features/01Login.feature"
-  tags: ""
+  tags: "@aaaa"
   dryRun: true
 
 chrome:
@@ -28,7 +28,7 @@ chrome:
   options:
     - "--start-maximized"
    # - "--incognito" # gizli sekmede acar.
-    - ""
+    - "user-data-dir=C:/browserProfile/chrome"
 
 edge:
   version: 117

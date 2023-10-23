@@ -19,6 +19,8 @@ public enum Menu {
     LOGO(By.xpath("//div[@class='logo pull-left']")),
     TEXTSIGNUP(By.xpath("//h2[text()='New User Signup!']")),
     ENTERACCOUNT(By.xpath("//h2[@class='title text-center']"));
+
+
     private By locator;
 
     Menu(By locator){
